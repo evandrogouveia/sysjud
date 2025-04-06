@@ -1,0 +1,83 @@
+<nav class="navbar shadow-sm" [ngClass]="{'shorten': scrollPosition > 60}">
+    <div class="container-fluid">
+        <a routerLink="/" class="navbar-left">
+            <img src="assets/imgs/logoipsum-362.svg">
+        </a>
+    
+        <div class="navbar-right">
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">
+                    <a class="nav-link" routerLink="/">Inicio</a>
+                </li>
+                <ng-container *ngIf="!hasLogged">
+                    <li class="list-group-item">
+                        <a class="nav-link" routerLink="/cadastro">Cadastre-se</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="nav-link" routerLink="/login">Entrar</a>
+                    </li>
+                </ng-container>
+            </ul>
+            
+            <div *ngIf="hasLogged" class="profile-menu" dropdown>
+                <div class="user" dropdownToggle aria-controls="dropdown-animated">
+                    <div class="box-image-user">
+                        <img src="assets/imgs/user-empty.svg">
+                    </div>
+    
+                    <span></span>
+                    <i class='bx bx-chevron-down bx-sm'></i>
+                </div>
+    
+                <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu drop-user" role="menu"
+                    aria-labelledby="button-animated">
+                    <li class="menuitem">
+                        <p>Ações</p>
+                    </li>
+                    <li class="menuitem">
+                        <a routerLink="/minha-conta">
+                            <i class='bx bx-user-circle' ></i>
+                            <span>Minha Conta</span>
+                        </a>
+                    </li>
+                    <li class="menuitem">
+                        <a routerLink="." (click)="logout()">
+                            <i class='bx bx-log-out'></i>
+                            <span>Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-collapse-mobile" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+            <i class='bx bx-menu'></i>
+        </button>
+
+        <!--div class="mobile-menu" [collapse]="isCollapsed">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a class="nav-link" routerLink="/" (click)="isCollapsed = !isCollapsed">Inicio</a>
+                </li>
+                <ng-container *ngIf="!hasLogged; else logged">
+                    <li class="list-group-item">
+                        <a class="nav-link" routerLink="/cadastro">Cadastre-se</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="nav-link" routerLink="/login">Entrar</a>
+                    </li>
+                </ng-container>
+                <ng-template #logged>
+                    <li class="list-group-item">
+                        <a class="nav-link" routerLink="/minha-conta">Minha Conta</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="javascript:void(0);" class="nav-link" (click)="logout();">Sair</a>
+                    </li>
+                </ng-template>
+              
+            </ul>
+        </div-->
+    </div>
+</nav>

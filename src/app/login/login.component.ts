@@ -22,6 +22,15 @@ export class LoginComponent {
     senha: ['', [Validators.required, Validators.minLength(6)]]
   });
 
+  cadastroForm: UntypedFormGroup = this.fb.group({
+    id: [''],
+    nome: [''],
+    email: ['', [Validators.required, Validators.email]],
+    telefone: [''],
+    qtd_processos: [''],
+    senha: ['', [Validators.required, Validators.minLength(6)]],
+  });
+
 
   constructor(
     private fb: UntypedFormBuilder,
@@ -56,7 +65,28 @@ export class LoginComponent {
       this.loading = false;
       //this.msgErro = validatorFields(this.loginForm);
     }
-    
+  }
+
+  submitNewUser(): void {
+    this.loading = true;
+    this.cadastroForm.get('nome')?.patchValue('Admin');
+    this.cadastroForm.get('email')?.patchValue('admin@sysjud.com.br');
+    this.cadastroForm.get('telefone')?.patchValue('123456789');
+    this.cadastroForm.get('qtd_processos')?.patchValue('30');
+    this.cadastroForm.get('senha')?.patchValue('123456');
+
+    if (this.cadastroForm.valid) {
+      this.msgErro = '';
+      this.loginService.cadastro(this.cadastroForm.value).subscribe((res) => {
+        if (res) { this.loading = false; }
+       },
+       (err: any) => {
+         this.loading = false;
+         this.loginRegisterError(err.message);
+       });
+    } else {
+      this.loading = false;
+    }
   }
 
   recuperarSenha(){

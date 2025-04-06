@@ -1,0 +1,34 @@
+<div
+  class="sidebar d-flex flex-column position-fixed h-100"
+  (mouseenter)="expandir = true"
+  (mouseleave)="expandir = false"
+  [ngClass]="{ 'expanded': expandir }"
+>
+  <nav class="nav flex-column mt-3">
+    <a class="nav-link d-flex align-items-center" routerLink="/dashboard">
+      <i class='bx bxs-dashboard fs-5 me-2'></i>
+      <span>Dashboard</span>
+    </a>
+    <a class="nav-link d-flex align-items-center" routerLink="/clients">
+      <i class='bx bxs-user-account fs-5 me-2'></i>
+      <span>Clientes</span>
+    </a>
+    <a class="nav-link d-flex align-items-center" routerLink="/processes">
+      <i class='bx bxs-briefcase-alt-2 fs-5 me-2'></i>
+      <span>Processos</span>
+    </a>
+    <a class="nav-link d-flex align-items-center" routerLink="/agenda">
+      <i class='bx bxs-calendar fs-5 me-2'></i>
+      <span>Agenda</span>
+    </a>
+    <a class="nav-link d-flex align-items-center" routerLink="/finance">
+      <i class='bx bxs-wallet fs-5 me-2'></i>
+      <span>Financeiro</span>
+    </a>
+    <a class="nav-link d-flex align-items-center" routerLink="/documents">
+      <i class='bx bxs-file fs-5 me-2'></i>
+      <span>Documentos</span>
+    </a>
+  </nav>
+</div>
+

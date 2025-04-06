@@ -1,0 +1,24 @@
+.sidebar {
+    width: 60px;
+    transition: width 0.3s ease;
+    border-right: 1px solid #dee2e6;
+    background-color: #ffffff;
+    padding-top: 60px;
+    .nav-link {
+      white-space: nowrap;
+      span{
+        opacity: 0;
+        transition: all 0.5s;
+      }
+    }
+  
+    &.expanded {
+      width: 250px;
+      .nav-link {
+        span{
+          opacity: 1;
+        }
+      }
+    }
+  }
+  

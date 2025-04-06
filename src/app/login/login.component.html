@@ -41,3 +41,6 @@
     </div>
 </div>
 
+<button type="button" class="btn" [ngClass]="{'waiting': loading}" (click)="submitNewUser()">
+    {{ loading ? 'Registrando...' : 'Registrar' }}
+</button>
