@@ -1,0 +1,43 @@
+<div class="content-login">
+    <div class="container">
+        <div class="wrap-login" [ngClass]="{'expanded-height': !showLoginForm}">
+            <form [formGroup]="loginForm" class="login-form validate-form" 
+                [ngClass]="!showLoginForm ? 'hide' : 'show'">
+                <div class="logo-top-login">
+                    <a class="link" routerLink="/home">
+                        <img src="assets/imgs/logoipsum-362.svg" alt="logo">
+                    </a>
+                </div>
+    
+                <p>Fazer login</p>
+                
+                <div class="form-group validate-input mb-3" data-validate="Valid email is required: ex@abc.xyz">
+                    <input class="form-control" type="email" name="email" formControlName="email" placeholder="E-mail"
+                        autocomplete="off" required>
+                    <i class='bx bx-envelope bx-sm'></i>
+                </div>
+            
+                <div *ngIf="!recuperarSenhaClick" [ngClass]="{'d-none': recuperarSenhaClick}" class="form-group validate-input mb-2" data-validate="Password is required">
+                    <input class="form-control" type="{{type}}" name="pass" formControlName="senha" placeholder="Senha"
+                        autocomplete="off" required>
+                    <i class='bx bx-lock bx-sm'></i>
+                    <i (click)="showHidPassword()" class="bx bx-sm" [ngClass]="(show == true) ? 'bx-show' : 'bx-hide'"></i>
+                </div>
+                
+                <div class="container-btn mt-3">
+                    <span *ngIf="msgErro" class="msg-erro">{{msgErro}}</span>
+                    <button type="submit" class="btn btn-primary" [ngClass]="{'waiting': loading}" (click)="submitLogin()">
+                        {{ loading ? 'Entrando...' : 'Entrar' }}
+                    </button>
+                </div>
+
+                <div class="contact-form-recover">
+                    <a href="javascrip:void(0);" (click)="recuperarSenha();">
+                       Esqueci minha senha
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

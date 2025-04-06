@@ -1,0 +1,135 @@
+.content-login{
+    background: #f5f5f5;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    .wrap-login{
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 400px;
+        height: 410px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        background-color: #ffffff;
+        border-radius: 0px;
+        box-shadow: 0px 10px 34px -15px rgba(0,0,0,0.24);
+        padding: 20px;
+        z-index: 999;
+        position: absolute;
+        
+        .login-form{
+            width: 100%;
+            .logo-top-login{
+                text-align: center;
+                margin-bottom: 30px;
+                img{
+                    width: 50%;
+                }
+            }
+            p{
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--bg-primary-color);
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            .form-group{
+                position: relative;
+                input {
+                    padding-left: 43px;
+                    font-size: 16px;
+                    color: #424242;
+                    font-weight: 500;
+                    border-radius: 4px;
+                    &::-webkit-input-placeholder {
+                        color: #9da1a7;
+                    }
+                    &::-moz-placeholder {
+                        color: #9da1a7;
+                    }
+                    &:-ms-input-placeholder {
+                        color: #9da1a7;
+                    }
+                    &:-moz-placeholder {
+                        color: #9da1a7;
+                    }
+                }
+                i {
+                    position: absolute;
+                    top: 11px;
+                    left: 10px;
+                    color: #9da1a7;
+                }
+                i+i{
+                    position: absolute;
+                    top: 11px;
+                    left: inherit;
+                    right: 15px;
+                    color: #9da1a7;
+                    cursor: pointer;
+                }
+            }
+            .container-btn{
+                margin-bottom: 30px;
+                button{
+                    width: 100%;
+                    font-weight: 600;
+                }
+            }
+            .contact-form-recover{
+                margin: 0 0 20px;
+                padding: 0 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                a{
+                    font-size: 15px;
+                    color: #9da1a7;
+                    &:hover{
+                        color: var(--bg-primary-color);
+                    }
+                }
+            }
+        }
+      }
+    
+    .errorValidation, 
+    .errorValidation.inputFocus{
+        border: 1px solid #d33232;
+        color: #d33232;
+    }
+  
+}
+
+
+
+/*======================= RESPONSIVE =======================*/
+@media(max-width: 576px){
+    .wrap-login{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        input, button{
+            height: 45px;
+        }
+        i, i+i{
+            top: 12px;
+        }
+        .content-no-account{
+            a{
+                width: 77px;
+            }
+        }
+        input[type="checkbox"]{
+            height: 16px;
+        }
+    }
+}
